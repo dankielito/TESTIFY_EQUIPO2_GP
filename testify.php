@@ -52,21 +52,27 @@
             
             <div class="visualizer-toolbar">
                 <span style="color: #2596be; font-weight: bold; margin-right: 15px;">Documentos Activos:</span>
-                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_perfil" checked> Perfil</label>
-                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e0" checked> Etapa 0</label>
-                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e1" checked> Etapa 1</label>
-                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e2" checked> Etapa 2</label>
-                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e3" checked> Etapa 3</label>
-                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e4" checked> Etapa 4</label>
+                
+                <label><input type="checkbox" id="check-completo" checked> Completo</label>
+                <span style="margin: 0 10px; color: #ccc;">|</span>
+                
+                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_perfil"> Perfil</label>
+                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e0"> Etapa 0</label>
+                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e1"> Etapa 1</label>
+                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e2"> Etapa 2</label>
+                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e3"> Etapa 3</label>
+                <label><input type="checkbox" class="toggle-pdf" data-pdf="pdf_e4"> Etapa 4</label>
             </div>
 
             <div class="pdf-container">
-                <iframe id="pdf_perfil" class="pdf-frame" src="PDF_Separado/PERFIL_PROYECTO.pdf#view=FitH"></iframe>
-                <iframe id="pdf_e0" class="pdf-frame" src="PDF_Separado/ETAPA_0.pdf#view=FitH"></iframe>
-                <iframe id="pdf_e1" class="pdf-frame" src="PDF_Separado/ETAPA_1.pdf#view=FitH"></iframe>
-                <iframe id="pdf_e2" class="pdf-frame" src="PDF_Separado/ETAPA_2.pdf#view=FitH"></iframe>
-                <iframe id="pdf_e3" class="pdf-frame" src="PDF_Separado/ETAPA_3.pdf#view=FitH"></iframe>
-                <iframe id="pdf_e4" class="pdf-frame" src="PDF_Separado/ETAPA_4.pdf#view=FitH"></iframe>
+                <iframe id="pdf_completo" class="pdf-frame" src="PDF_Separado/Final.pdf#view=FitH" style="display: block;"></iframe>
+                
+                <iframe id="pdf_perfil" class="pdf-frame" src="PDF_Separado/PERFIL_PROYECTO.pdf#view=FitH" style="display: none;"></iframe>
+                <iframe id="pdf_e0" class="pdf-frame" src="PDF_Separado/ETAPA_0.pdf#view=FitH" style="display: none;"></iframe>
+                <iframe id="pdf_e1" class="pdf-frame" src="PDF_Separado/ETAPA_1.pdf#view=FitH" style="display: none;"></iframe>
+                <iframe id="pdf_e2" class="pdf-frame" src="PDF_Separado/ETAPA_2.pdf#view=FitH" style="display: none;"></iframe>
+                <iframe id="pdf_e3" class="pdf-frame" src="PDF_Separado/ETAPA_3.pdf#view=FitH" style="display: none;"></iframe>
+                <iframe id="pdf_e4" class="pdf-frame" src="PDF_Separado/ETAPA_4.pdf#view=FitH" style="display: none;"></iframe>
             </div>
 
         </section>
