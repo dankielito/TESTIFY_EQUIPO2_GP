@@ -87,8 +87,10 @@
 
         <div id="tab-listados" class="tab-contenido">
             <p style="font-size:11px; color:#555; margin-bottom:10px;">💡 <em>Doble clic en el texto para editarlo. Modifica las cantidades de manera independiente (máx. 100).</em></p>
+            
             <h4 class="subseccion-formulario">Componentes de Acuerdos</h4>
             <div class="lista-interactiva-contenedor" id="contenedor-interactivo-acuerdos"></div>
+
             <h4 class="subseccion-formulario">Componentes de Hitos</h4>
             <div class="lista-interactiva-contenedor" id="contenedor-interactivo-hitos"></div>
         </div>
@@ -128,32 +130,34 @@
                 <input type="text" id="inp_patrocinador" value="(SIGUIENTE CLASE)">
             </div>
         </div>
-
-        <hr style="margin: 20px 0; border: 1px solid #c1e4f5;">
-        <button type="button" id="btn-generar-acta" class="btn-generar">Guardar y Preparar Entregable</button>
     </form>
 </div>
 
 <style>
     .editor-formulario { padding: 10px; font-family: 'Aptos', sans-serif; background-color: #f8fbfd; }
+    
+    /* Pestañas Estilo Navegador */
     .tabs-navegador { display: flex; border-bottom: 2px solid #c1e4f5; margin-bottom: 15px; background: #ebf4f8; border-radius: 4px 4px 0 0; }
     .tab-link { flex: 1; background: transparent; border: none; padding: 10px 5px; font-size: 12px; font-weight: bold; color: #525659; cursor: pointer; border-bottom: 3px solid transparent; transition: all 0.2s; text-align: center; }
     .tab-link:hover { background: rgba(37, 150, 190, 0.1); color: #2596be; }
     .tab-link.active { color: #2596be; border-bottom-color: #2596be; background: #ffffff; }
+    
+    /* Visibilidad de los Paneles */
     .tab-contenido { display: none; }
     .tab-contenido.active { display: block; }
+    
     .subseccion-formulario { color: #2596be; font-size: 13px; margin: 15px 0 8px 0; border-bottom: 1px solid #c1e4f5; padding-bottom: 3px; text-transform: uppercase; }
     .campo { margin-bottom: 12px; }
     .campo label { display: block; font-weight: bold; color: #323639; font-size: 11px; margin-bottom: 4px; }
     .campo input, .campo textarea, .campo select { width: 100%; padding: 7px; border: 1px solid #b0c4de; border-radius: 4px; font-family: inherit; font-size: 12px; box-sizing: border-box; }
+    
+    /* Contenedores de Listas Avanzadas */
     .lista-interactiva-contenedor { max-height: 280px; overflow-y: auto; border: 1px solid #cbd5e1; background: #fff; border-radius: 4px; padding: 5px; margin-bottom: 15px; }
     .fila-lista-interactiva { display: flex; align-items: center; gap: 6px; padding: 4px; border-bottom: 1px solid #f1f5f9; font-size: 12px; }
     .fila-lista-interactiva input[type="number"] { width: 45px; padding: 2px; text-align: center; border: 1px solid #cbd5e1; border-radius: 3px; }
     .label-editable { flex: 1; cursor: pointer; padding: 2px; border-radius: 3px; transition: background 0.1s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .label-editable:hover { background: #f1f5f9; }
     .input-inline-edit { flex: 1; font-size: 12px; padding: 2px; border: 1px solid #2596be; border-radius: 3px; }
-    .btn-generar { background: #2596be; color: white; padding: 12px; border: none; width: 100%; cursor: pointer; font-weight: bold; border-radius: 4px; font-size: 13px; }
-    .btn-generar:disabled { background: #ccc; cursor: not-allowed; }
 </style>
 
 <script src="Plantillas/1_Acta_Constitucion/logica_acta.js"></script>

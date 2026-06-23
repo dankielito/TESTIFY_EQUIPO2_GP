@@ -24,7 +24,6 @@
 
     <main class="workspace-container">
         
-        <!-- Panel Izquierdo: Editor -->
         <section class="editor-panel">
             <h2 class="seccion-titulo">Edición de Plantilla</h2>
             
@@ -42,7 +41,6 @@
             <div id="gestion_requerimientos" class="template-section"><p>Módulo de Requerimientos en construcción.</p></div>
         </section>
 
-        <!-- Panel Derecho: Visualizador Dinámico -->
         <section class="visualizer-panel">
             <div class="visualizer-toolbar">
                 <span style="color: #2596be; font-weight: bold; margin-right: 10px;">Vista:</span>
@@ -58,7 +56,7 @@
                 <iframe id="main-pdf-viewer" class="pdf-frame" src="PDF_Separado/Final.pdf#view=FitH" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
                 
                 <div id="live-preview-container" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #525659; z-index: 10; overflow-y: auto;">
-                    <?php @include 'Plantillas/1_Acta_Constitucion/preview_acta.php'; ?>
+                    <?php @include 'Plantillas/previsualizador.php'; ?>
                 </div>
             </div>
         </section>
