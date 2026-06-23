@@ -4,7 +4,7 @@
     
     <div class="pdf-sim-toolbar">
         <div class="toolbar-left">
-            <span style="font-size: 14px; margin-left: 10px;">ETAPA_1_Live_Preview.pdf</span>
+            <span style="font-size: 14px; margin-left: 10px;">Testify_Preview_vFinal.pdf</span>
         </div>
         <div class="toolbar-center" style="display: flex; align-items: center; gap: 15px;">
             <span style="font-size: 13px;">55 - 86 / 296</span>
@@ -31,7 +31,7 @@
             <div id="contenedor-gestion-alcance">
                 <?php // @include '3_Gestion_Alcance/preview_alcance.php'; ?>
             </div>
-
+          
             </div>
     </div>
 

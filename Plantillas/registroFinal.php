@@ -1,32 +1,37 @@
 <?php
 // Plantillas/registroFinal.php
-session_start(); // Iniciamos la sesión en el servidor
+// sesion abierta pa que no se pierdan los datos cuando cambias de tab
+session_start();
 
-// Capturamos la información enviada desde el JavaScript (Fetch API)
-$inputJSON = file_get_contents('php://input');
-$data = json_decode($inputJSON, true);
+// recibimos el stream de datos
+$rawPost = file_get_contents('php://input');
+$jsonPayload = json_decode($rawPost, true);
 
-// Verificamos si se enviaron datos
-if ($data) {
-    // Si no existe la variable maestra del proyecto, la creamos
+// por si acaso llega algo vacio, mejor validamos
+if (!empty($jsonPayload)) {
+    
+    // inicializamos la memoria si es la primera vez que entran
     if (!isset($_SESSION['Testify_Memoria'])) {
         $_SESSION['Testify_Memoria'] = [];
     }
     
-    // Obtenemos qué módulo está mandando la información (ej. 'Acta_Constitucion')
-    $modulo = isset($data['modulo']) ? $data['modulo'] : 'General';
+    // verificar en la guia de scripts si funciona 
+    $modName = $jsonPayload['modulo'] ?? 'General';
     
-    // Actualizamos únicamente el módulo correspondiente, manteniendo el resto intacto
-    $_SESSION['Testify_Memoria'][$modulo] = $data['datos'];
+    // guardamos los datos en la sesion
+    $_SESSION['Testify_Memoria'][$modName] = $jsonPayload['datos'];
     
-    // Devolvemos una respuesta de éxito al navegador
+    // confirmamos que se guardo bien, pa el log del js
+    header('Content-Type: application/json');
     echo json_encode([
-        "status" => "success", 
-        "mensaje" => "Datos de $modulo guardados temporalmente.",
-        "memoria_actual" => $_SESSION['Testify_Memoria']
+        "status" => "ok", 
+        "msg" => "datos de $modName salvados chido"
     ]);
+
 } else {
-    // Si solo se consulta el archivo, devuelve la memoria actual
-    echo json_encode(isset($_SESSION['Testify_Memoria']) ? $_SESSION['Testify_Memoria'] : []);
+    // esto es por si alguien entra directo al archivo o no mando nada
+    header('Content-Type: application/json');
+    echo json_encode($_SESSION['Testify_Memoria'] ?? []);
 }
+// TODO: ver si es necesario limpiar la sesion al cerrar ventana
 ?>

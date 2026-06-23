@@ -1,5 +1,5 @@
 <?php
-// Redireccionamiento limpio hacia el dashboard principal de Testify
+// Redireccionamiento para testify, pa que no se sature de inicio
 header("Location: testify.php");
 exit();
 ?>

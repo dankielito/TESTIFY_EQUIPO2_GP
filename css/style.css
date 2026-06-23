@@ -46,14 +46,14 @@ body {
     border-bottom: 2px solid #ffffff;
 }
 
-/* Split Screen Container */
+
 .workspace-container {
     display: flex;
     flex: 1;
     height: calc(100vh - 60px);
 }
 
-/* Left Panel: Editor */
+
 .editor-panel {
     width: 45%;
     background-color: #f8fbfd;
@@ -63,7 +63,7 @@ body {
 }
 
 .template-section {
-    display: none; /* Oculto por defecto, se activa con JS */
+    display: none; 
 }
 
 .template-section.active {
@@ -77,10 +77,9 @@ body {
     padding-bottom: 5px;
 }
 
-/* Right Panel: Visualizer */
 .visualizer-panel {
     width: 55%;
-    background-color: #525659; /* Fondo oscuro típico de visualizadores PDF */
+    background-color: #525659; 
     display: flex;
     flex-direction: column;
 }
