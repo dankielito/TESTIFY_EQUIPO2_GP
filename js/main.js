@@ -1,61 +1,55 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Logica de navegacion del menu (Izquierda)
+    // 1. Navegación del Panel Izquierdo
     const botonesMenu = document.querySelectorAll('.nav-menu button');
-    const seccionesPlantilla = document.querySelectorAll('.template-section');
+    const secciones = document.querySelectorAll('.template-section');
 
     botonesMenu.forEach(boton => {
         boton.addEventListener('click', () => {
-            // Quitar clase active de todos los botones y secciones
             botonesMenu.forEach(b => b.classList.remove('active'));
-            seccionesPlantilla.forEach(s => s.classList.remove('active'));
+            secciones.forEach(s => s.classList.remove('active'));
 
-            // Activar el seleccionado
             boton.classList.add('active');
-            const targetId = boton.getAttribute('data-target');
-            document.getElementById(targetId).classList.add('active');
+            document.getElementById(boton.getAttribute('data-target')).classList.add('active');
         });
     });
 
-    // 2. Logica del Visualizador PDF Acoplado (Derecha)
-    const checkCompleto = document.getElementById('check-completo');
-    const iframeCompleto = document.getElementById('pdf_completo');
-    const togglesPdf = document.querySelectorAll('.toggle-pdf');
+    // 2. Lógica del Visualizador Dinámico
+    const radiosPdf = document.querySelectorAll('.toggle-pdf');
+    const iframeViewer = document.getElementById('main-pdf-viewer');
+    const livePreview = document.getElementById('live-preview-container');
 
-    // Evento A: Cuando el usuario hace clic en "Completo"
-    checkCompleto.addEventListener('change', (e) => {
-        if(e.target.checked) {
-            // Mostramos el documento final
-            iframeCompleto.style.display = 'block';
+    radiosPdf.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+            const archivoSeleccionado = e.target.value;
             
-            // Desmarcamos y ocultamos todas las opciones individuales
-            togglesPdf.forEach(toggle => {
-                toggle.checked = false;
-                const pdfId = toggle.getAttribute('data-pdf');
-                document.getElementById(pdfId).style.display = 'none';
-            });
-        } else {
-            // Si el usuario desmarca completo, ocultamos el iframe
-            iframeCompleto.style.display = 'none';
-        }
-    });
-
-    // Evento B: Cuando el usuario hace clic en cualquier Etapa individual
-    togglesPdf.forEach(toggle => {
-        toggle.addEventListener('change', (e) => {
-            const pdfId = e.target.getAttribute('data-pdf');
-            const iframeObjetivo = document.getElementById(pdfId);
-            
-            if(e.target.checked) {
-                // Si marcamos una etapa, apagamos y ocultamos el "Completo"
-                checkCompleto.checked = false;
-                iframeCompleto.style.display = 'none';
-                
-                // Mostramos el iframe de la etapa seleccionada
-                iframeObjetivo.style.display = 'block';
+            if (archivoSeleccionado === 'live_etapa_1') {
+                iframeViewer.style.display = 'none';
+                livePreview.style.display = 'block';
             } else {
-                // Si la desmarcamos, la ocultamos
-                iframeObjetivo.style.display = 'none';
+                livePreview.style.display = 'none';
+                iframeViewer.style.display = 'block';
+                iframeViewer.src = `PDF_Separado/${archivoSeleccionado}#view=FitH`;
             }
         });
     });
+
+    // 3. Lógica de Zoom Simulada
+    let zoomNivel = 1;
+    const btnZoomOut = document.getElementById('btn-zoom-out');
+    const btnZoomIn = document.getElementById('btn-zoom-in');
+    const contenedorHoja = document.getElementById('hoja-zoom-container');
+
+    if(btnZoomIn && btnZoomOut && contenedorHoja) {
+        btnZoomIn.addEventListener('click', () => {
+            if(zoomNivel < 1.5) { zoomNivel += 0.1; aplicarZoom(); }
+        });
+        btnZoomOut.addEventListener('click', () => {
+            if(zoomNivel > 0.5) { zoomNivel -= 0.1; aplicarZoom(); }
+        });
+
+        function aplicarZoom() {
+            contenedorHoja.style.transform = `scale(${zoomNivel})`;
+            contenedorHoja.style.transformOrigin = "top center";
+        }
+    }
 });
