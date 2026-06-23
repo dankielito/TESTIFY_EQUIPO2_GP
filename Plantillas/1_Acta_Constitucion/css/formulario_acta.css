@@ -1,0 +1,7 @@
+/* css del form - ya modificado para que se vea mas limpio con bootstrap */
+.tab-contenido { display: none; } 
+.tab-contenido.active { display: block; }
+.lista-interactiva-contenedor { max-height: 270px; overflow-y: auto; border: 1px solid #dee2e6; }
+.fila-lista-interactiva { transition: background-color 0.2s; }
+.fila-lista-interactiva:hover { background-color: #f1f7fc !important; }
+.label-editable { cursor: pointer; display: inline-block; width: 100%; }
