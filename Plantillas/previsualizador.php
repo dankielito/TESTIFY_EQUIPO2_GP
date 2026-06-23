@@ -25,13 +25,25 @@
             </div>
             
             <div id="contenedor-registro-interesados">
-                <?php // @include '2_Registro_Interesados/preview_interesados.php'; ?>
+                <?php @include '2_Registro_Interesados/preview_interesados.php'; ?>
             </div>
 
             <div id="contenedor-gestion-alcance">
-                <?php // @include '3_Gestion_Alcance/preview_alcance.php'; ?>
+                <?php @include '3_Gestion_Alcance/preview_alcance.php'; ?>
             </div>
-          
+        
+            <div id="contenedor-gestion-alcance">
+                <?php @include '4_EDT/preview_edt.php'; ?>
+            </div>
+
+            <div id="contenedor-gestion-alcance">
+                <?php @include '5_Plan_Direccion/preview_direccion.php'; ?>
+            </div>
+
+             <div id="contenedor-gestion-alcance">
+                <?php @include '3_Gestion_Requerimientos/preview_requerimientos.php'; ?>
+            </div>
+            
             </div>
     </div>
 
