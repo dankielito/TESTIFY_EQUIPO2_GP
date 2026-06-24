@@ -188,5 +188,5 @@ let colSolucion = matrizN[0].length -1;
     if (resultadoZ<0) resultadoZ=-resultadoZ;
     resultadoZ = Math.round(resultadoZ * 100) / 100;
 
-    document.getElementById("textoResultado").innerHTML = "✔ Optimización Completa: Z = $" + resultadoZ;
+    document.getElementById("textoResultado").innerHTML = "Optimización Completa: Z = $" + resultadoZ;
 }
