@@ -41,9 +41,13 @@
             </div>
 
              <div id="contenedor-gestion-alcance">
-                <?php @include '3_Gestion_Requerimientos/preview_requerimientos.php'; ?>
+                <?php @include '6_Gestion_Requerimientos/preview_requerimientos.php'; ?>
             </div>
-            
+
+             <div id="contenedor-gestion-alcance">
+                <?php @include '7_Gran M_Simplex/preview_GranM_Simplex.php'; ?>
+            </div>
+                         
             </div>
     </div>
 
