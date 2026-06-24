@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTIFY</title>
+    <style> 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Aptos', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f8fbfd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .tarjeta-simulador {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(37, 150, 190, 0.1);
+            border-top: 5px solid #2596be;
+        }
+
+        .encabezado {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .encabezado h2 {
+            color: #2596be;
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .encabezado p {
+            color: #666;
+            font-size: 13px;
+        }
+
+        h3 {
+            color: #2596be;
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #c1e4f5;
+            padding-bottom: 3px;
+        }
+
+        .bloque-input {
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .bloque-input label {
+            display: block;
+            font-size: 13px;
+            color: #333;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .bloque-input input {
+            padding: 6px;
+            border: 1px solid #c1e4f5;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #ffffff;
+            outline: none;
+        }
+
+        .bloque-input input[type="number"] {
+            width: 100%;
+        }
+
+        .bloque-input .input-fila {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .boton-optimizar {
+            background-color: #2596be;
+            color: #ffffff;
+            border: none;
+            padding: 12px;
+            font-size: 15px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .boton-optimizar:hover {
+            background-color: #1d7aa2;
+        }
+
+        .resultado-caja {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #c1e4f5;
+            color: #2596be;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tarjeta-simulador">
+        <div class="encabezado">
+            <h2>TESTIFY</h2>
+            <p>Módulo de simulación SIMPLEX Y GRAN M</p>
+        </div>
+        
+        <h3>Función objetivo (Maximizar Z)</h3>
+        <div class="bloque-input">
+            <label>Variable x1 Licencias de Software:</label>
+            <input type="number" id="inputZ1" placeholder="0">
+        </div>
+        <div class="bloque-input">
+            <label>Variable x2 Costo ingenieros de TI:</label>
+            <input type="number" id="inputZ2" placeholder="0">
+        </div>
+
+        <h3>Restricciones del sistema</h3>
+        <div class="bloque-input">
+            <label>Restricción 1 (R1):</label>
+            <div class="input-fila">
+                <span>1X1 + 0X2</span>
+                <select id="signo1" style="padding: 6px; border: 1px solid #c1e4f5; border-radius: 4px;">
+                    <option value="<=">&lt;=</option>
+                    <option value=">=">&gt;=</option>
+                    <option value="=">=</option>
+                </select>
+                <input type="number" id="res1" placeholder="0">
+            </div>
+        </div>
+
+        <div class="bloque-input">
+            <label>Restricción 2 (R2):</label>
+            <div class="input-fila">
+                <span>0X1 + 2X2</span>
+                <select id="signo2" style="padding: 6px; border: 1px solid #c1e4f5; border-radius: 4px;">
+                    <option value="<=">&lt;=</option>
+                    <option value=">=">&gt;=</option>
+                    <option value="=">=</option>
+                </select>
+                <input type="number" id="res2" placeholder="0">
+            </div>
+        </div>
+
+        <div class="bloque-input">
+            <label>Restricción 3 (R3):</label>
+            <div class="input-fila">
+                <span>3X1 + 2X2</span>
+                <select id="signo3" style="padding: 6px; border: 1px solid #c1e4f5; border-radius: 4px;">
+                    <option value="<=">&lt;=</option>
+                    <option value=">=">&gt;=</option>
+                    <option value="=">=</option>
+                </select>
+                <input type="number" id="res3" placeholder="0">
+            </div>
+        </div>
+        
+        <button class="boton-optimizar" onclick="CalcularSimplexDesdePantalla()">Ejecutar Optimización</button>
+        
+        <div class="resultado-caja" id="textoResultado">
+            Estado: Esperando variables...
+        </div>
+    </div>
+
+    <script src="calculoSimplexyGranM.js"></script>
+</body>
+</html>
